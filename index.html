@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <style>
+         #theme {
+         height: 42px;
+         width: 112px;
+         border: solid 3px rgba(24, 24, 26, 0);
+         border-radius: 25px;
+         background-color: rgb(86, 187, 145);
+         margin: 0% 0% 0% 87%;
+         cursor: default; 
+         position: relative;
+         opacity: 0.8;
+         }
+         #circle {
+         height: 38px;
+         width: 56px;
+         border: solid 3px black;
+         border-radius: 155px;
+         background-image: url('./dark.png');
+         background-size: cover;
+         cursor: pointer;
+         position: absolute;
+         top: 50%; /* Move to the center vertically */
+         left: 50%; /* Move to the center horizontally */
+         transform: translate(-89%, -50%); /* Center offset */
+         opacity: 1; 
+         }
+
+       
+      </style>
+   </head>
+   <body> 
+      <div id="theme" >
+         <span id="circle" onclick="changeTheme()">
+         </span>
+
+         
+      </div>
+      <script>
+         let currentTheme = 0; // 0 for light mode
+         
+         function changeTheme() {
+         
+          const circle = document.getElementById('circle');
+			const theme = document.getElementById('theme');
+         
+         	// change theme to dark 
+         	if (currentTheme == 0) {
+               document.body.style.backgroundColor = 'rgba(54, 57, 63, 1)'; // Discord dark mode background
+             document.body.style.color = 'rgba(255, 255, 255, 0.87)';
+       
+                 currentTheme = 1;
+                 
+                 circle.style.transform =  `translate(-11%, -50%)`;
+                 circle.style.backgroundImage = "url(./light.png)";
+
+                 
+             }else {
+             // change theme to light
+             
+
+             document.body.style.backgroundColor = 'rgba(255, 255, 255, 1)'; // Light mode background (white)
+               document.body.style.color = 'rgba(28, 28, 28, 1)'; 
+         	currentTheme = 0;
+            circle.style.transform =  `translate(-89%, -50%)`;
+            circle.style.backgroundImage = "url(./dark.png)";
+            
+         }
+         }
+         
+      
+         
+      </script>
+   </body>
+</html>
